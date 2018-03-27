@@ -54,8 +54,9 @@ namespace Glob.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostId,Title,Content,Date")] Post post)
+        public async Task<IActionResult> Create([Bind("PostId,Title,Content")] Post post)
         {
+            post.Date = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(post);
