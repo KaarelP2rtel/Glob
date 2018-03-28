@@ -4,27 +4,27 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Kustuta</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Oled sa kindel, et soovid postitust kustutada?</h3>
 <div>
-    <h4>Post</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            Pealkiri
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Content)
+           Sisu
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Content)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            Kuupäev
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Date)
@@ -33,7 +33,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="PostId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Kustuta" class="btn btn-default" /> |
+        <a asp-action="Index">Tagasi</a>
     </form>
 </div>

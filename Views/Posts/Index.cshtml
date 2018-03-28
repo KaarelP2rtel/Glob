@@ -4,22 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Postitused</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Uus Postitus</a>
 </p>
 <table class="table">
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Title)
+                    Pealkiri
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Content)
+                   
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Date)
+                   Kuupäev
                 </th>
             <th></th>
         </tr>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PostId">Muuda</a> |
+                <a asp-action="Details" asp-route-id="@item.PostId">Info</a> |
+                <a asp-action="Delete" asp-route-id="@item.PostId">Kustuta</a>
             </td>
         </tr>
 }
