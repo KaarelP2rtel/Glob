@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Glob.Data;
 using Glob.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Glob.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,7 +20,6 @@ namespace Glob.Controllers
         {
             _context = context;
         }
-
         // GET: Posts
         public async Task<IActionResult> Index()
         {

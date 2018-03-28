@@ -20,7 +20,7 @@ namespace Glob.Controllers
         public IActionResult Index()
         {
             
-            return View( _context.Posts.ToList());
+            return View( _context.Posts.OrderByDescending(p=>p.Date).ToList());
         }
 
 
