@@ -2,19 +2,120 @@
     ViewData["Title"] = "";
 }
 @model List<Post>
-@foreach (var item in Model)
-{
+<div class="col-md-8">
+    @foreach (var post in Model)
+    {
+
+        <div class="panel panel-info ">
+            <div class="panel-heading">
+                @post.Title
+            </div>
+            <div class="panel-body ">
+                @(post.Content.Substring(0, Math.Min(288, post.Content.Length))+"...")
+            </div>
+            <div class="panel-footer">
+                @post.Date.ToString(@"dd.MM.yyyy HH:mm")
+            </div>
+
+
+        </div>
+
+    }
+    
+</div>
+@*<div class="col-md-4">
     <div class="panel panel-default">
         <div class="panel-heading">
-            @item.Title
+            Title
         </div>
         <div class="panel-body">
-            @(item.Content)
-        </div>
-        <div class="panel-footer">
-            @item.Date
+            Content
         </div>
         
+    </div>
+</div>*@
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            whois
+        </div>
+        <div class="panel-body">
+
+            <table class="table-condensed">
+                <tr>
+                    <th>
+                        Kaarel Pärtel
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        Tudeng @@ Eesti Infotehnoloogia Kolledž
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Spagett-orietneertitud programmeerija
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Takistite hävitaja
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
 
     </div>
-}
+</div>
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Kontakt
+        </div>
+        
+        <div class="panel-body">
+
+            <table class="table-condensed">
+                <tr>
+                    <td class="text-center">
+                        <div class="glyphicon glyphicon-envelope"></div>
+                    </td>
+                    <td>
+                        <a href="mailto:kaarelp2rtel@gmail.com">
+                            kaarelp2rtel@gmail.com
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        <div class="glyphicon glyphicon-chevron-left"></div>
+                        <div class="glyphicon glyphicon-chevron-right"></div>
+                    </td>
+                    <td>
+                        <a href="https://github.com/KaarelP2rtel">
+                            GitHub
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        <div class="glyphicon glyphicon-phone"></div>
+
+                        
+                    </td>
+                    <td>
+                        <a href="tel:+37253484781">
+                            +372 53484781
+                        </a>
+                    </td>
+                </tr>
+            </table>
+                        
+        </div>
+
+    </div>
+</div>
