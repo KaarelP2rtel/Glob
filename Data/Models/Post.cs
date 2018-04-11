@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Glob.Models
+namespace Glob.Data.Models
 {
     public class Post
     {

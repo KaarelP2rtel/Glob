@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Glob.Data;
 using Glob.Models;
+using Glob.Data.Models;
 
 namespace Glob
 {

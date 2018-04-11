@@ -8,32 +8,43 @@
 
         <div class="panel panel-info ">
             <div class="panel-heading">
-                @post.Title
+                <a href="/Post/@post.PostId">@post.Title</a>
             </div>
-            <div class="panel-body ">
-                @(post.Content.Substring(0, Math.Min(288, post.Content.Length))+"...")
+            <div class="panel-body">
+                @if (post.Content.Length < 288)
+                {
+                    @post.Content
+
+                }
+                else
+                {
+                    @post.Content.Substring(0, 288).Trim()
+                    @("...")
+
+
+                }
+
             </div>
-            <div class="panel-footer">
-                @post.Date.ToString(@"dd.MM.yyyy HH:mm")
-            </div>
+
+
 
 
         </div>
 
     }
-    
+
 </div>
 @*<div class="col-md-4">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Title
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Title
+            </div>
+            <div class="panel-body">
+                Content
+            </div>
+
         </div>
-        <div class="panel-body">
-            Content
-        </div>
-        
-    </div>
-</div>*@
+    </div>*@
 <div class="col-md-4">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -75,7 +86,7 @@
         <div class="panel-heading">
             Kontakt
         </div>
-        
+
         <div class="panel-body">
 
             <table class="table-condensed">
@@ -105,7 +116,7 @@
                     <td class="text-center">
                         <div class="glyphicon glyphicon-phone"></div>
 
-                        
+
                     </td>
                     <td>
                         <a href="tel:+37253484781">
@@ -114,8 +125,24 @@
                     </td>
                 </tr>
             </table>
-                        
+
         </div>
 
     </div>
 </div>
+<div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                TODO:
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>Implementeerida Markdown</li>
+                    <li>Individuaalsed postituse lehed</li>
+                    <li>Softcodeida Info paneelid</li>
+                    <li>Luua CV</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>

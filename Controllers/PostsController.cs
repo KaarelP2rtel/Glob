@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Glob.Data;
 using Glob.Models;
 using Microsoft.AspNetCore.Authorization;
+using Glob.Data.Models;
 
 namespace Glob.Controllers
 {

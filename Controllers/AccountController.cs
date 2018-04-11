@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Glob.Models;
+
 using Glob.Models.AccountViewModels;
+using Glob.Data.Models;
 
 namespace Glob.Controllers
 {
