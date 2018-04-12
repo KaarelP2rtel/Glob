@@ -6,9 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Glob.Data;
-using Glob.Models;
-using Microsoft.AspNetCore.Authorization;
 using Glob.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Glob.Controllers
 {
@@ -21,6 +20,7 @@ namespace Glob.Controllers
         {
             _context = context;
         }
+
         // GET: Posts
         public async Task<IActionResult> Index()
         {
@@ -56,9 +56,8 @@ namespace Glob.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostId,Title,Content")] Post post)
+        public async Task<IActionResult> Create([Bind("PostId,Title,Content,Date,IsInfo")] Post post)
         {
-            post.Date = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(post);
@@ -89,7 +88,7 @@ namespace Glob.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Content,Date")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Content,Date,IsInfo")] Post post)
         {
             if (id != post.PostId)
             {

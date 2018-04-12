@@ -2,147 +2,48 @@
     ViewData["Title"] = "";
 }
 @model List<Post>
-<div class="col-md-8">
-    @foreach (var post in Model)
-    {
-
-        <div class="panel panel-info ">
-            <div class="panel-heading">
-                <a href="/Post/@post.PostId">@post.Title</a>
-            </div>
-            <div class="panel-body">
-                @if (post.Content.Length < 288)
-                {
-                    @post.Content
-
-                }
-                else
-                {
-                    @post.Content.Substring(0, 288).Trim()
-                    @("...")
 
 
-                }
+<div class="container">
+    <div class="col-lg-8">
+        @foreach (Post post in Model.Where(p => !p.IsInfo))
+        {
 
-            </div>
+            <div class="panel-info">
+                <div class="panel-heading">
+                    @post.Title
+                </div>
+                <div class="panel-body">
+                    @if (post.Content.ToString().Length >= 288)
+                    {
+                        @Html.Raw(post.Content.ToString().Substring(0, 288))
+                        @("...")
 
-
-
-
-        </div>
-
-    }
-
-</div>
-@*<div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Title
-            </div>
-            <div class="panel-body">
-                Content
+                    }
+                    else
+                    {
+                        @Html.Raw(post.Content)
+                    }
+                </div>
             </div>
 
-        </div>
-    </div>*@
-<div class="col-md-4">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            whois
-        </div>
-        <div class="panel-body">
 
-            <table class="table-condensed">
-                <tr>
-                    <th>
-                        Kaarel Pärtel
-                    </th>
+        }
+    </div>
+    <div class="col-lg-4">
+        @foreach (Post post in Model.Where(p => p.IsInfo))
+        {
 
-                </tr>
-                <tr>
-                    <td>
-                        Tudeng @@ Eesti Infotehnoloogia Kolledž
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Spagett-orienteertitud programmeerija
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Takistite hävitaja
-                    </td>
-                </tr>
+            <div class="panel-default">
+                <div class="panel-heading">
+                    @post.Title
+                </div>
+                <div class="panel-body">
+                    @Html.Raw(post.Content)
+                </div>
+            </div>
 
-            </table>
-
-        </div>
-
+        }
     </div>
 </div>
-<div class="col-md-4">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Kontakt
-        </div>
 
-        <div class="panel-body">
-
-            <table class="table-condensed">
-                <tr>
-                    <td class="text-center">
-                        <div class="glyphicon glyphicon-envelope"></div>
-                    </td>
-                    <td>
-                        <a href="mailto:kaarelp2rtel@gmail.com">
-                            kaarelp2rtel@gmail.com
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">
-                        <div class="glyphicon glyphicon-chevron-left"></div>
-                        <div class="glyphicon glyphicon-chevron-right"></div>
-                    </td>
-                    <td>
-                        <a href="https://github.com/KaarelP2rtel">
-                            GitHub
-                        </a>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td class="text-center">
-                        <div class="glyphicon glyphicon-phone"></div>
-
-
-                    </td>
-                    <td>
-                        <a href="tel:+37253484781">
-                            +372 53484781
-                        </a>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-
-    </div>
-</div>
-<div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                TODO:
-            </div>
-            <div class="panel-body">
-                <ul>
-                    <li>Implementeerida Markdown</li>
-                    <li>Individuaalsed postituse lehed</li>
-                    <li>Softcodeida Info paneelid</li>
-                    <li>Luua CV</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>

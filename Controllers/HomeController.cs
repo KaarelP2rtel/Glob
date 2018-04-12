@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Glob.Models;
 using Glob.Data;
+using HeyRed.MarkdownSharp;
 
 namespace Glob.Controllers
 {
@@ -19,8 +20,19 @@ namespace Glob.Controllers
         }
         public IActionResult Index()
         {
-            
-            return View( _context.Posts.OrderByDescending(p=>p.Date).ToList());
+
+
+            var md = new Markdown();
+
+
+            var posts = _context.Posts.OrderByDescending(p => p.Date).ToList();
+            foreach (var post in posts)
+            {
+                post.Content = md.Transform(post.Content);
+
+            }
+
+            return View(posts);
         }
 
 

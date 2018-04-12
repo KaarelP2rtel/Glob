@@ -4,32 +4,39 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Postituse Info</h2>
+<h2>Details</h2>
 
 <div>
+    <h4>Post</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Pealkiri
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
         <dt>
-            Sisu
+            @Html.DisplayNameFor(model => model.Content)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Content)
         </dd>
         <dt>
-            Kuupäev
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Date)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsInfo)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PostId">Muuda</a> |
-    <a asp-action="Index">Tagasi</a>
+    <a asp-action="Edit" asp-route-id="@Model.PostId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>
